@@ -1,35 +1,11 @@
 import React, { Component } from "react";
+import * as ContactsApi from "./utils/ContactsApi";
 import "antd/dist/antd.css";
 import "./App.css";
 import ListContacts from "./Components/ListContacts";
 class App extends Component {
   state = {
-    contacts: [
-      {
-        id: "tyler",
-        name: "Tyler McGinnis",
-        handle: "@tylermcginnis",
-        avatarURL: "/home/ayin_qoph/github/Contact-App/public/icons/avatar1.png"
-      },
-      {
-        id: "karen",
-        name: "Karen Isgrigg",
-        handle: "@karen_isgrigg",
-        avatarURL: "http://localhost:5001/public/icons/avatar1.png"
-      },
-      {
-        id: "richard",
-        name: "Richard Kalehoff",
-        handle: "@richardkalehoff",
-        avatarURL: "http://localhost:5001/richard.jpg"
-      },
-      {
-        id: "mark",
-        name: "mark Kalehoff",
-        handle: "@markkalehoff",
-        avatarURL: "http://localhost:5001/richard.jpg"
-      }
-    ]
+    contacts: []
   };
 
   removeContact = contact => {
@@ -40,6 +16,18 @@ class App extends Component {
     }));
   };
 
+  updateQuery = query => {
+    this.setState(() => ({
+      query: query.trim
+    }));
+  };
+  componentDidMount() {
+    ContactsApi.getAll().then(contacts => {
+      this.setState(() => ({
+        contacts
+      }));
+    });
+  }
   render() {
     return (
       <div>
