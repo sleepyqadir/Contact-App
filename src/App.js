@@ -14,6 +14,8 @@ class App extends Component {
         return val.id !== contact.id;
       })
     }));
+
+    ContactsApi.remove(contact);
   };
 
   updateQuery = query => {

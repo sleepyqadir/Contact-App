@@ -43,14 +43,7 @@ class ListContacts extends Component {
           <Card
             hoverable
             style={{ width: 250 }}
-            cover={
-              <Avatar
-                shape="square"
-                style={{ backgroundColor: "#87d068" }}
-                size={250}
-                icon={<UserOutlined />}
-              />
-            }
+            cover={<img alt="example" src={contact.avatarURL} />}
             actions={[
               <Button type="primary">Edit</Button>,
               <Button
