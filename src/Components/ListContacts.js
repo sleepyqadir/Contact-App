@@ -1,16 +1,7 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { UserOutlined } from "@ant-design/icons";
-import {
-  Avatar,
-  Button,
-  Card,
-  Col,
-  Descriptions,
-  Input,
-  PageHeader,
-  Row
-} from "antd";
+import { Button, Card, Col, Descriptions, Input, PageHeader, Row } from "antd";
+import { Link } from "react-router-dom";
 
 import { Typography } from "antd";
 const { Meta } = Card;
@@ -56,7 +47,7 @@ class ListContacts extends Component {
               </Button>
             ]}
           >
-            <Meta title={contact.name} description={contact.handle} />
+            <Meta title={contact.name} description={contact.email} />
           </Card>
         </Col>
       );
@@ -94,7 +85,7 @@ class ListContacts extends Component {
               </Descriptions.Item>
               <Descriptions.Item>
                 <Button key="1" type="primary" block>
-                  Primary
+                  <Link to="/create">Add Contact</Link>
                 </Button>
               </Descriptions.Item>
             </Descriptions>
